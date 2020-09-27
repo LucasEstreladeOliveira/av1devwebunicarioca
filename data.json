@@ -1,0 +1,161 @@
+{
+    "users" : [
+        {
+            "matricula" : 2017101079,
+            "name" : "Lucas Estrela de Oliveira",
+            "senha" : "qwerty2222",
+            "isProf" : false,
+            "materias" : [
+                {
+                    "id" : 1,
+                    "name" : "Dev Web",
+                    "avaliacoes" : [
+                        {
+                            "name" : "AV1", 
+                            "prova": 5.0,
+                            "aps": 2.5
+                        },
+                        {
+                            "name" : "AV2", 
+                            "prova": 6.5,
+                            "aps": 2.0
+                        },
+                        {
+                            "name" : "AV3", 
+                            "prova": null
+                        }
+                    ]
+                    
+                },
+                {
+                    "id" : 2,
+                    "name" : "Dev BD",
+                    "avaliacoes" : [
+                        {
+                            "name" : "AV1", 
+                            "prova": 5.5,
+                            "aps": 3.0
+                        },
+                        {
+                            "name" : "AV2", 
+                            "prova": 7.0,
+                            "aps": 3.0
+                        },
+                        {
+                            "name" : "AV3", 
+                            "prova": null
+                        }
+                    ]
+                },
+                {
+                    "id" : 3,
+                    "name" : "Projeto Integrador",
+                    "avaliacoes" : [
+                        {
+                            "name" : "AV1", 
+                            "prova": 7.0,
+                            "aps": 1.0
+                        },
+                        {
+                            "name" : "AV2", 
+                            "prova": 6.5,
+                            "aps": 3.0
+                        },
+                        {
+                            "name" : "AV3", 
+                            "prova": null
+                        }
+                    ]
+                },
+                {
+                    "id" : 4,
+                    "name" : "Banco de Dados",
+                    "avaliacoes" : [
+                        {
+                            "name" : "AV1", 
+                            "prova": 5.5,
+                            "aps": 1.0
+                        },
+                        {
+                            "name" : "AV2", 
+                            "prova": 3.5,
+                            "aps": 1.0
+                        },
+                        {
+                            "name" : "AV3", 
+                            "prova": 8.0
+                        }
+                    ]
+                },
+                {
+                    "id" : 5,
+                    "name" : "Tópicos Avançados",
+                    "avaliacoes" : [
+                        {
+                            "name" : "AV1", 
+                            "prova": 7.0,
+                            "aps": 2.0
+                        },
+                        {
+                            "name" : "AV2", 
+                            "prova": 7.0,
+                            "aps": 2.0
+                        },
+                        {
+                            "name" : "AV3", 
+                            "prova": null
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "matricula" : 123456789,
+            "name" : "Professor 1",
+            "senha" : "qwerty2222",
+            "isProf" : true,
+            "materias" : [
+                {
+                    "id" : 1,
+                    "name" : "Dev Web",
+                    "alunos" : [
+                        2017101079,
+                        2015202050
+                    ]
+                },
+                {
+                    "id" : 2,
+                    "name" : "Dev BD",
+                    "alunos" : [
+                        2017101079,
+                        2015202050
+                    ]
+                },
+                {
+                    "id" : 3,
+                    "name" : "Projeto Integrador",
+                    "alunos" : [
+                        2017101079,
+                        2015202050
+                    ]
+                },
+                {
+                    "id" : 4,
+                    "name" : "Banco de Dados",
+                    "alunos" : [
+                        2017101079,
+                        2015202050
+                    ]
+                },
+                {
+                    "id" : 5,
+                    "name" : "Tópicos Avançados",
+                    "alunos" : [
+                        2017101079,
+                        2015202050
+                    ]
+                }
+            ]
+        }
+    ]
+}
