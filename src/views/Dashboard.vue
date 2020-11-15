@@ -21,10 +21,13 @@ export default {
   methods: {
     setMateria(mat) {
       this.$store.state.materia = mat;
-      this.$router.push('/materia') 
+      if(!this.user.isProf){
+        this.$router.push('/materia') 
+      }else{
+        this.$router.push('/stats') 
+      }
     }
-  },
-
+  }
 }
 </script>
 

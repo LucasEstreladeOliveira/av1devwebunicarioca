@@ -56,7 +56,8 @@
 </template>
 
 <script>
-  import data from '../../data.json';
+  // import data from '../../data.json';
+  import axios from "axios";
   export default {
       data() {
         return {
@@ -65,17 +66,16 @@
         }
       },
       methods: {
-        login() {
-          data.users.forEach( user => {
-            console.log("user mat", user.matricula)
-            console.log("user senha", user.senha)
-            console.log("this mat", this.matricula)
-            console.log("this senha", this.senha)
-            if(user.matricula.toString() === this.matricula && user.senha === this.senha){
-                this.$store.state.user = user;
-                this.$router.push('/')
-            }
-          })
+        async login() {
+          let login = new FormData();
+          login.append('login', this.matricula);
+          await axios.post('http://localhost:8080/av2desenvolvimento/auth', login);
+          // data.users.forEach( user => {
+          //   if(user.matricula.toString() === this.matricula && user.senha === this.senha){
+          //       this.$store.state.user = user;
+          //       this.$router.push('/')
+          //   }
+          // })
         }
       },
   }
