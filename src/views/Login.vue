@@ -67,15 +67,17 @@
       },
       methods: {
         async login() {
-          let login = new FormData();
-          login.append('login', this.matricula);
-          await axios.post('http://localhost:8080/av2desenvolvimento/auth', login);
-          // data.users.forEach( user => {
-          //   if(user.matricula.toString() === this.matricula && user.senha === this.senha){
-          //       this.$store.state.user = user;
-          //       this.$router.push('/')
-          //   }
-          // })
+          let login = {
+            matricula: this.matricula,
+            senha: this.senha
+          }
+          await axios.post('http://localhost:8081/projeto/auth', login)
+          .then((res) => {
+            if(res.data){
+              this.$store.state.user = res.data;
+              this.$router.push('/');
+            }
+          });
         }
       },
   }

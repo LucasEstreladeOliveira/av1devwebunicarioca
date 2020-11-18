@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: 'Dashboard',
   computed: {
@@ -26,8 +28,18 @@ export default {
       }else{
         this.$router.push('/stats') 
       }
+    },
+    async getMaterias(matricula) {
+      await axios.post('http://localhost:8081/projeto/materias', {'matricula': matricula})
+        .then((res) => {
+          console.log(res.data);
+        }
+      );
     }
-  }
+  },
+  created () {
+    this.getMaterias(this.user.matricula);
+  },
 }
 </script>
 

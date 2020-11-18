@@ -37,7 +37,7 @@
         <v-icon v-if="drawer">mdi-menu-left</v-icon>
         <v-icon v-else>mdi-menu-right</v-icon>
       </v-app-bar-nav-icon>
-      <v-toolbar-title>{{ user.name }}</v-toolbar-title>
+      <v-toolbar-title>{{ user.nome }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
