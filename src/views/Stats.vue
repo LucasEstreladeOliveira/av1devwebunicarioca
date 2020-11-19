@@ -63,36 +63,25 @@
 </template>
 
 <script>
-import data from "../../data.json";
+// import data from "../../data.json";
 import { media, quartil, desvio_padrao } from "../utils/calcHelper"
 
 export default {
   name: 'Dashboard',
   computed: {
     alunos() {
-      let alunos = [];
-      this.$store.state.materia.alunos.forEach( aluno => {
-        data.users.forEach( user => {
-          if(aluno.toString() === user.matricula.toString()){
-            alunos.push(user);
-          }
-        })
-      })
-      return alunos; 
+      return this.$store.state.user.alunos;
     },
     avaliacoes() {
       let avaliacoes = [];
       this.alunos.forEach( aluno => {
-        aluno.materias.forEach( mat => {
-          if(this.$store.state.materia.id === mat.id){
-           avaliacoes.push(mat.avaliacoes);
-          }
-        })
+        avaliacoes.push(aluno.turma)
       })
       return avaliacoes;
     },
     media() {
-      let total = 0; 
+      let total = 0;
+      
       this.avaliacoes.forEach( av => {
         total += parseInt(media(av));
       })      

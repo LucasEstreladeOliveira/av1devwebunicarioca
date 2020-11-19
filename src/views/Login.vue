@@ -59,27 +59,38 @@
   // import data from '../../data.json';
   import axios from "axios";
   export default {
-      data() {
-        return {
-          matricula: '',
-          senha: ''
+    data() {
+      return {
+        matricula: '',
+        senha: ''
+      }
+    },
+    methods: {
+      async login() {
+        let login = {
+          matricula: this.matricula,
+          senha: this.senha
         }
-      },
-      methods: {
-        async login() {
-          let login = {
-            matricula: this.matricula,
-            senha: this.senha
-          }
-          await axios.post('http://localhost:8081/projeto/auth', login)
-          .then((res) => {
-            if(res.data){
-              this.$store.state.user = res.data;
-              this.$router.push('/');
+        await axios.post('http://localhost:8081/av2DevWeb/auth', login)
+        .then(async (res) => {
+          if(res.data){
+            this.$store.state.user = res.data;
+            await axios.post('http://localhost:8081/av2DevWeb/materias', {'matricula': this.$store.state.user.matricula, "isProf": this.$store.state.user.isProf})
+              .then((res) => {
+                if(this.$store.state.user.isProf){
+                  this.$store.state.materia = res.data;
+                  this.$store.state.user.materias = res.data;
+                }else {
+                  this.$store.state.user.materias = res.data;
+                }
             }
-          });
-        }
+          );
+          console.log(this.$store.state.user)
+            this.$router.push('/');
+          }
+        });
       },
+    },
   }
 </script>
 

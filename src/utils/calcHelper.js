@@ -1,17 +1,16 @@
 export function media(av){
   let total = 0;
   let prevTotal = 0;
-  av.forEach( av => {
-    let prova = 0;
-    let aps = 0;
+
+  let av1 = av.AV1 + av.APS_1;
+  let av2 = av.AV2 + av.APS_2;
+  let av3 = av.AV3;
+
+  let avs = [av1, av2, av3];
+  avs.forEach( av => {
     let avTotal = 0;
-    if(av.prova){
-      prova = av.prova;
-    }
-    if(av.aps){
-      aps = av.aps
-    }
-    avTotal = prova + aps;
+
+    avTotal = av;
     if(avTotal < prevTotal){
       total += 0;
     }else{
@@ -19,6 +18,7 @@ export function media(av){
     }
     prevTotal = avTotal;
   })
+
   total = total/2 
   if(!total){
     return "Calculando"
@@ -32,7 +32,6 @@ export function quartil(data, q){
   var base = Math.floor(pos);
   var rest = pos - base;
   if( (data[base+1]!==undefined) ) {
-    console.log(data[base] + rest * (data[base+1] - data[base]))
     return data[base] + rest * (data[base+1] - data[base]);
   } else {
     return data[base];

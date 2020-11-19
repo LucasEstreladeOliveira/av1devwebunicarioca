@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import data from "../../data.json";
+// import data from "../../data.json";
 
 export default {
   name: 'Dashboard',
@@ -20,16 +20,16 @@ export default {
       headers: [
         {
           text:'ID',
-          value: 'id',
+          value: 'aluno.idaluno',
           align: 'start'
         },
         {
           text:'Nome',
-          value: 'name',
+          value: 'aluno.nome',
         },
         {
           text:'Matrícula',
-          value: 'matricula',
+          value: 'aluno.matricula',
           sortable: false,
         },
       ]
@@ -38,27 +38,31 @@ export default {
   },
   computed: {
     alunos() {
-      let alunos = [];
-      let count = 1;
-      this.$store.state.materia.alunos.forEach( aluno => {
-        data.users.forEach( user => {
-          if(aluno.toString() === user.matricula.toString()){
-            user.id = count;
-            count ++; 
-            alunos.push(user);
-          }
-        })
-      })
-      return alunos; 
+      return this.$store.state.user.alunos;
     }
   },
   methods: {
     selectAluno(data){
-      data.materias.forEach( mat => {
-        if(this.$store.state.materia.id === mat.id){
-          this.$store.state.materia = mat;
-        }
-      })
+      this.$store.state.materia.idAluno = data.aluno.idaluno;
+      this.$store.state.materia.avaliacoes =  [
+        {
+          "id": 1,
+          "name" : "AV1", 
+          "prova": data.turma.AV1,
+          "aps": data.turma.APS_1
+        },
+        {
+          "id": 2,
+          "name" : "AV2", 
+          "prova": data.turma.AV2,
+          "aps": data.turma.APS_2
+        },
+        {
+          "id": 3,
+          "name" : "AV3", 
+          "prova": data.turma.AV3,
+        },
+      ]
       this.$router.push('/materia');
     }
   },
